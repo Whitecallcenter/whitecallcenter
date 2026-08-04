@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>화이트 콜센터 | 1588-0500 500원 카드대리운전</title>
+<title>화이트 콜센터 | 대표번호 안내</title>
 
 <style>
 /* 기본 리셋 및 전역 스타일 */
@@ -15,7 +15,7 @@
 
 body{
     font-family:'Malgun Gothic', sans-serif;
-    /* 고해상도 배경 이미지 적용 (파일명에 맞춰 수정하세요) */
+    /* 고해상도 배경 이미지 적용 */
     background-image: url('image_1.png'); 
     background-size: cover;
     background-position: center;
@@ -37,7 +37,7 @@ body{
 }
 
 .nav-container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 15px 20px;
     display: flex;
@@ -100,48 +100,57 @@ body{
     background-color: #e04f00;
 }
 
-/* 헤더/히어로 영역 스타일 */
+/* 헤더/히어로 영역 및 카드 박스 스타일 (두 번째 이미지 스타일 반영) */
 header{
     background: rgba(15, 23, 42, 0.85);
     backdrop-filter: blur(5px);
     color:#fff;
-    padding:70px 20px;
+    padding:60px 20px;
     text-align:center;
 }
 
 header h1{
-    font-size:44px;
+    font-size:42px;
     margin-bottom:12px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
 }
 
 header p{
     color:#e2e8f0;
-    font-size:19px;
-    margin-bottom:25px;
+    font-size:18px;
+    margin-bottom:30px;
 }
 
+/* 전화번호 카드 그리드 (두 번째 이미지 디자인 적용) */
 .header-call-box {
-    display: inline-flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .call-card {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.12);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 15px 28px;
-    border-radius: 12px;
+    padding: 20px 15px;
+    border-radius: 16px;
     text-align: center;
+    backdrop-filter: blur(5px);
+    transition: transform 0.2s, background 0.2s;
+}
+
+.call-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.18);
 }
 
 .call-card .label {
-    font-size: 14px;
+    font-size: 15px;
     color: #93c5fd;
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+    font-weight: 500;
 }
 
 .call-card .number {
@@ -149,6 +158,7 @@ header p{
     font-weight: bold;
     color: #ffffff;
     text-decoration: none;
+    letter-spacing: 0.5px;
 }
 
 /* 컨테이너 및 카드 공통 */
@@ -173,62 +183,6 @@ header p{
     border-bottom:2px solid #1565C0;
     padding-bottom:10px;
     font-size: 24px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* 그리드 서비스 안내 */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.grid-item {
-    background: rgba(248, 250, 252, 0.8);
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 20px;
-}
-
-.grid-item h3 {
-    color: #0f172a;
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.grid-item p {
-    font-size: 14px;
-    color: #475569;
-}
-
-/* 그리드 4컬럼 (특장점) */
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.feature-box {
-    background: #ffffff;
-    border-left: 4px solid #1565C0;
-    padding: 15px;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.04);
-}
-
-.feature-box h4 {
-    font-size: 16px;
-    color: #1e293b;
-    margin-bottom: 5px;
-}
-
-.feature-box p {
-    font-size: 13px;
-    color: #64748b;
 }
 
 /* 테이블 스타일 */
@@ -325,10 +279,6 @@ footer a{
     text-decoration:none;
 }
 
-footer a:hover {
-    text-decoration: underline;
-}
-
 .phone{
     color:#1565C0;
     font-size:26px;
@@ -346,17 +296,11 @@ footer a:hover {
         justify-content: center;
         gap: 10px 15px;
     }
-    .nav-menu a {
-        font-size: 14px;
+    .header-call-box {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     }
-    header{
-        padding: 40px 20px;
-    }
-    header h1{
-        font-size:32px;
-    }
-    .info-table td:first-child{
-        width:130px;
+    .call-card .number {
+        font-size: 22px;
     }
 }
 </style>
@@ -372,7 +316,6 @@ footer a:hover {
       <li><a href="#company">회사소개</a></li>
       <li><a href="#service">서비스 안내</a></li>
       <li><a href="#corporate">기업고객</a></li>
-      <li><a href="#consignment">차량탁송</a></li>
       <li><a href="#cs">고객센터</a></li>
       <li><a href="#cs" class="btn-nav">문의하기</a></li>
       <li><a href="#recruit" class="btn-nav btn-accent">기사님모집</a></li>
@@ -386,16 +329,37 @@ footer a:hover {
   <span>함께하실 기사님을 모집합니다</span>
 </a>
 
-<!-- 헤더 (대표번호 강조) -->
+<!-- 헤더 (모든 브랜드 대표번호를 이미지 스타일 박스로 배치) -->
 <header>
   <h1>화이트 콜센터</h1>
-  <p>안전하고 신속한 24시간 대리운전 & 차량탁송 서비스</p>
+  <p>24시간 원하시는 브랜드로 빠르고 안전하게 모십니다</p>
   
   <div class="header-call-box">
     <div class="call-card">
-      <span class="label">카드/일반 대리운전</span>
+      <span class="label">총알배차대리운전</span>
+      <a href="tel:1644-1230" class="number">1644-1230</a>
+    </div>
+
+    <div class="call-card">
+      <span class="label">내친구대리운전</span>
+      <a href="tel:1688-4799" class="number">1688-4799</a>
+    </div>
+
+    <div class="call-card">
+      <span class="label">바로바로카드대리운전</span>
+      <a href="tel:1666-8585" class="number">1666-8585</a>
+    </div>
+
+    <div class="call-card">
+      <span class="label">500원카드대리운전</span>
       <a href="tel:1588-0500" class="number">1588-0500</a>
     </div>
+
+    <div class="call-card">
+      <span class="label">25시대리</span>
+      <a href="tel:1666-2525" class="number">1666-2525</a>
+    </div>
+
     <div class="call-card">
       <span class="label">법인 후불 고객 전용</span>
       <a href="tel:1899-1212" class="number">1899-1212</a>
@@ -405,64 +369,8 @@ footer a:hover {
 
 <div class="container">
 
-  <!-- 주요 서비스 요약 -->
+  <!-- 운영 브랜드 (카카오채널 표) -->
   <div class="card" id="service">
-    <h2>🚘 서비스 안내</h2>
-    <div class="grid-container">
-      <div class="grid-item">
-        <h3>💳 신용카드 결제 대리운전</h3>
-        <p>현금이 없어도 OK! 전 카드사 신용카드 결제 지원 및 홈페이지를 통한 즉시 영수증 출력 서비스를 제공합니다.</p>
-      </div>
-      <div class="grid-item">
-        <h3>🏢 법인 후불 대리운전</h3>
-        <p>기업 고객을 위한 맞춤형 서비스! 월 단위 일괄 정산, 세금계산서 발행 및 전용 관리 시스템을 제공합니다.</p>
-      </div>
-      <div class="grid-item" id="consignment">
-        <h3>🚚 전문 차량탁송 서비스</h3>
-        <p>인천, 서울, 경기 및 전국 어디서나! 신차, 중고차, 정비차량 등 고객님의 차량을 목적지까지 안전하게 운송합니다.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- 화이트콜센터 특장점 (1588-0500 핵심 강점) -->
-  <div class="card">
-    <h2>🛡️ 화이트 콜센터의 약속</h2>
-    <div class="features-grid">
-      <div class="feature-box">
-        <h4>100% Insurance</h4>
-        <p>전 기사 KB/삼성 등 100% 운전자 보험 가입 완료</p>
-      </div>
-      <div class="feature-box">
-        <h4>Fast Dispatch</h4>
-        <p>GPS 기반 최단거리 위치 배차 시스템 적용</p>
-      </div>
-      <div class="feature-box">
-        <h4>Receipt Service</h4>
-        <p>카드 결제 및 온라인 영수증 즉시 출력 지원</p>
-      </div>
-      <div class="feature-box">
-        <h4>24/7 Support</h4>
-        <p>연중무휴 24시간 콜센터 상담원 대기</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- 법인 및 제휴 안내 -->
-  <div class="card" id="corporate">
-    <h2>🏢 법인고객(후불) 안내</h2>
-    <p style="margin-bottom: 15px;">
-      화이트 콜센터는 기업 임직원분들의 안전한 퇴근과 효율적인 비즈니스 이동을 돕기 위해 법인 전용 서비스를 운영하고 있습니다.
-    </p>
-    <div class="notice">
-      <strong>법인회원 혜택:</strong><br>
-      • 월말 일괄 정산 및 세금계산서 간편 발행<br>
-      • 임직원 이용 내역 실시간 확인 및 일괄 관리<br>
-      • 법인 전용 대표번호 (<strong>1899-1212</strong>) 우선 배차 지원
-    </div>
-  </div>
-
-  <!-- 운영 브랜드 (카카오채널) -->
-  <div class="card">
     <h2>📱 운영 브랜드 및 카카오채널</h2>
     <p style="margin-bottom:20px;">
       화이트 콜센터는 아래의 브랜드 및 카카오채널을 직접 운영 및 관리하고 있습니다.
@@ -545,22 +453,12 @@ footer a:hover {
     </table>
   </div>
 
-  <!-- 기사 모집 안내 -->
-  <div class="card" id="recruit">
-    <h2>🤝 기사님 모집 안내</h2>
-    <p>화이트 콜센터와 함께하실 소중한 기사님을 모집합니다.</p>
-    <div class="notice">
-      <strong>모집 조건:</strong> 운전면허 소지자 (초보가능, 24시간 원하는 시간대 자유 근무)<br>
-      <strong>접수 문의:</strong> 대표번호 1588-0500으로 전화 주시면 친절하게 안내해 드립니다.
-    </div>
-  </div>
-
   <!-- 고객센터 -->
   <div class="card" id="cs" style="text-align: center;">
     <h2>📞 고객센터</h2>
-    <p style="font-size: 18px; margin-top: 10px;">불편사항 접수 및 제휴 문의</p>
+    <p style="font-size: 18px; margin-top: 10px;">24시간 운영 콜센터</p>
     <p class="phone" style="font-size: 36px; margin: 15px 0;">1588-0500</p>
-    <p style="color: #64748b;">365일 24시간 언제나 친절하게 상담해 드립니다.</p>
+    <p style="color: #64748b;">365일 언제나 친절하게 안내해 드립니다.</p>
   </div>
 
 </div>
@@ -569,12 +467,10 @@ footer a:hover {
 <footer>
   <p style="margin-bottom: 15px;">
     <a href="#">개인정보처리방침</a> | 
-    <a href="#">이용약관</a> | 
-    <a href="#company">사업자정보확인</a>
+    <a href="#">이용약관</a>
   </p>
   상호명 : 화이트 콜센터 | 대표자 : 강동호 | 주소 : 서울시 강동구 천호동 53-19 원일빌딩 2층<br>
   전화 : 1588-0500 | 사업자등록번호 : 374-06-02143 | 통신판매업신고번호 : 제2022-서울강동-1790호<br>
-  개인정보관리책임자 : 강동호 | 이메일 : card1588-0500@hanmail.net<br><br>
   © 2026 화이트 콜센터 All Rights Reserved.
 </footer>
 
