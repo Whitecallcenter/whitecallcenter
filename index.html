@@ -35,7 +35,7 @@ body{
     margin: 0 auto;
     padding: 15px 20px;
     display: flex;
-    justify-content: flex-end; /* 오른쪽 정렬 (필요시 space-between으로 변경 가능) */
+    justify-content: flex-end;
     align-items: center;
     gap: 30px;
 }
@@ -77,22 +77,28 @@ body{
     transform: translateY(-1px);
 }
 
-/* 헤더 스타일 */
+/* 헤더 스타일 - 요청하신 이미지 적용 */
 header{
-    background:#1f2937;
+    position: relative;
+    /* 이미지 오버레이 처리 (글씨 가독성 확보) */
+    background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
+                url('image_3.png') center/cover no-repeat;
     color:#fff;
-    padding:50px 20px;
+    padding: 120px 20px; /* 배경이 더 많이 보이도록 패딩 늘림 */
     text-align:center;
 }
 
 header h1{
-    font-size:42px;
-    margin-bottom:10px;
+    font-size:52px;
+    font-weight: 800;
+    margin-bottom:15px;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.5);
 }
 
 header p{
-    color:#ddd;
-    font-size:18px;
+    color:#e2e8f0;
+    font-size:22px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
 .container{
@@ -230,8 +236,14 @@ footer a{
         padding: 6px 14px;
         font-size: 13px !important;
     }
+    header{
+        padding: 80px 20px;
+    }
     header h1{
-        font-size:30px;
+        font-size:36px;
+    }
+    header p{
+        font-size: 18px;
     }
     .info-table td:first-child{
         width:140px;
