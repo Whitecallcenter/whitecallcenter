@@ -318,7 +318,7 @@ header p{
     50% { transform: translateY(-8px); }
 }
 
-/* 푸터 */
+/* 푸터 및 푸터 전화번호 영역 스타일 */
 footer{
     background: rgba(15, 23, 42, 0.95);
     color:#94a3b8;
@@ -336,6 +336,34 @@ footer a{
 
 footer a:hover {
     text-decoration: underline;
+}
+
+.footer-brand-numbers {
+    max-width: 900px;
+    margin: 20px auto 25px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px 25px;
+}
+
+.footer-brand-item {
+    font-size: 13px;
+    color: #cbd5e1;
+}
+
+.footer-brand-item strong {
+    color: #93c5fd;
+}
+
+.footer-brand-item a {
+    color: #ffffff;
+    font-weight: bold;
+    margin: 0 0 0 5px;
 }
 
 .phone{
@@ -363,6 +391,11 @@ footer a:hover {
     }
     .info-table td:first-child{
         width:130px;
+    }
+    .footer-brand-numbers {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
     }
 }
 </style>
@@ -392,7 +425,7 @@ footer a:hover {
   <span>함께하실 기사님을 모집합니다</span>
 </a>
 
-<!-- 헤더 (요청하신 6가지 번호를 카드 박스 스타일로 적용) -->
+<!-- 헤더 -->
 <header>
   <h1>화이트 콜센터</h1>
   <p>24시간 원하시는 브랜드로 빠르고 안전하게 모십니다</p>
@@ -592,15 +625,27 @@ footer a:hover {
 
 </div>
 
-<!-- 푸터 -->
+<!-- 푸터 (브랜드별 대표번호 박스 추가 반영) -->
 <footer>
   <p style="margin-bottom: 15px;">
     <a href="#">개인정보처리방침</a> | 
     <a href="#">이용약관</a> | 
     <a href="#company">사업자정보확인</a>
   </p>
+
+  <!-- 하단 브랜드 대표번호 모음 -->
+  <div class="footer-brand-numbers">
+    <div class="footer-brand-item"><strong>총알배차</strong> <a href="tel:1644-1230">1644-1230</a></div>
+    <div class="footer-brand-item"><strong>내친구</strong> <a href="tel:1688-4799">1688-4799</a></div>
+    <div class="footer-brand-item"><strong>바로바로카드</strong> <a href="tel:1666-8585">1666-8585</a></div>
+    <div class="footer-brand-item"><strong>500원카드</strong> <a href="tel:1588-0500">1588-0500</a></div>
+    <div class="footer-brand-item"><strong>25시대리</strong> <a href="tel:1666-2525">1666-2525</a></div>
+    <div class="footer-brand-item"><strong>법인전용</strong> <a href="tel:1899-1212">1899-1212</a></div>
+  </div>
+
   상호명 : 화이트 콜센터 | 대표자 : 강동호 | 주소 : 서울시 강동구 천호동 53-19 원일빌딩 2층<br>
-  전화 : 1588-0500 | 사업자등록번호 : 374-06-02143 | 통신판매업신고번호 : 제2022-서울강동-1790호<br>
+  전화 : 1588-0500 (대표) / 1644-1230 / 1688-4799 / 1666-8585 / 1666-2525 / 1899-1212(법인)<br>
+  사업자등록번호 : 374-06-02143 | 통신판매업신고번호 : 제2022-서울강동-1790호<br>
   개인정보관리책임자 : 강동호 | 이메일 : card1588-0500@hanmail.net<br><br>
   © 2026 화이트 콜센터 All Rights Reserved.
 </footer>
