@@ -6,17 +6,15 @@
 <title>화이트 콜센터</title>
 
 <style>
+/* 기본 리셋 및 전역 스타일 */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
-<div class="driver-bubble">
-  🚗 기사모집중
-  <span>함께하실 기사님을 모집합니다</span>
-</div>
+
 body{
-    font-family:'Malgun Gothic',sans-serif;
+    font-family:'Malgun Gothic', sans-serif;
     background:#f5f7fa;
     color:#333;
     line-height:1.7;
@@ -120,211 +118,179 @@ footer a{
     font-weight:bold;
 }
 
-@media(max-width:768px){
-
-header h1{
-font-size:30px;
-}
-
-.info-table td:first-child{
-width:140px;
-}
-
-.brand-table{
-font-size:14px;
-}
-
-}
-    <style>
-/* 기존 디자인 CSS */
-
+/* 기사 모집 말풍선 플로팅 버튼 */
 .driver-bubble {
-  position: fixed;
-  right: 20px;
-  bottom: 90px;
-  background: #ff5a00;
-  color: white;
-  padding: 15px 20px;
-  border-radius: 30px;
-  font-size: 18px;
-  font-weight: bold;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  z-index: 9999;
-  animation: floatBubble 2s infinite;
+    position: fixed;
+    right: 20px;
+    bottom: 90px;
+    background: #ff5a00;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 9999;
+    animation: floatBubble 2s infinite;
 }
 
 .driver-bubble span {
-  display: block;
-  font-size: 12px;
-  margin-top: 5px;
+    display: block;
+    font-size: 12px;
+    margin-top: 5px;
 }
 
 .driver-bubble:after {
-  content: "";
-  position: absolute;
-  right: 25px;
-  bottom: -10px;
-  border-width: 10px 10px 0 10px;
-  border-style: solid;
-  border-color: #ff5a00 transparent transparent transparent;
+    content: "";
+    position: absolute;
+    right: 25px;
+    bottom: -10px;
+    border-width: 10px 10px 0 10px;
+    border-style: solid;
+    border-color: #ff5a00 transparent transparent transparent;
 }
 
 @keyframes floatBubble {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* 반응형 스타일 */
+@media(max-width:768px){
+    header h1{
+        font-size:30px;
+    }
+
+    .info-table td:first-child{
+        width:140px;
+    }
+
+    .brand-table{
+        font-size:14px;
+    }
 }
 </style>
-
 </head>
 
 <body>
 
+<!-- 우하단 플로팅 배너 -->
+<div class="driver-bubble">
+  🚗 기사모집중
+  <span>함께하실 기사님을 모집합니다</span>
+</div>
+
 <header>
-
-<h1>화이트 콜센터</h1>
-
-<p>24시간 대리운전 콜센터 운영</p>
-
+  <h1>화이트 콜센터</h1>
+  <p>24시간 대리운전 콜센터 운영</p>
 </header>
 
 <div class="container">
 
-<div class="card">
+  <div class="card">
+    <h2>사업자 정보</h2>
+    <table class="info-table">
+      <tr>
+        <td>상호</td>
+        <td>화이트 콜센터</td>
+      </tr>
+      <tr>
+        <td>대표자</td>
+        <td>강동호</td>
+      </tr>
+      <tr>
+        <td>사업자등록번호</td>
+        <td><strong>374-06-02143</strong></td>
+      </tr>
+      <tr>
+        <td>통신판매업신고번호</td>
+        <td><strong>제2022-서울강동-1790호</strong></td>
+      </tr>
+      <tr>
+        <td>주소</td>
+        <td>서울특별시 강동구 천호동 53-19 원일빌딩 2층</td>
+      </tr>
+      <tr>
+        <td>대표번호</td>
+        <td class="phone">1588-0500</td>
+      </tr>
+      <tr>
+        <td>이메일</td>
+        <td>card1588-0500@hanmail.net</td>
+      </tr>
+      <tr>
+        <td>업종</td>
+        <td>대리운전 콜센터 운영 및 배차 서비스</td>
+      </tr>
+    </table>
+  </div>
 
-<h2>사업자 정보</h2>
+  <div class="card">
+    <h2>운영 브랜드(카카오채널)</h2>
+    <p style="margin-bottom:20px;">
+      화이트 콜센터는 아래 브랜드 및 카카오채널을 직접 운영하고 있습니다.
+    </p>
 
-<table class="info-table">
+    <table class="brand-table">
+      <thead>
+        <tr>
+          <th>브랜드</th>
+          <th>카카오채널</th>
+          <th>대표번호</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>총알배차대리운전</td>
+          <td>@총알배차대리운전</td>
+          <td>1644-1230</td>
+        </tr>
+        <tr>
+          <td>내친구대리운전</td>
+          <td>@내친구대리운전</td>
+          <td>1688-4799</td>
+        </tr>
+        <tr>
+          <td>바로바로카드대리운전</td>
+          <td>@바로바로카드대리운전</td>
+          <td>1666-8585</td>
+        </tr>
+        <tr>
+          <td>500원카드대리운전</td>
+          <td>@500원카드대리운전</td>
+          <td>1588-0500</td>
+        </tr>
+        <tr>
+          <td>25시대리</td>
+          <td>@25시대리</td>
+          <td>1666-2525</td>
+        </tr>
+      </tbody>
+    </table>
 
-<tr>
-<td>상호</td>
-<td>화이트 콜센터</td>
-</tr>
+    <div class="notice">
+      <strong>안내</strong><br><br>
+      위 모든 브랜드 및 카카오채널은 <strong>화이트 콜센터</strong>에서 운영하는 공식 서비스입니다.<br>
+      사업자등록번호 : <strong>374-06-02143</strong><br>
+      통신판매업신고번호 : <strong>제2022-서울강동-1790호</strong>
+    </div>
+  </div>
 
-<tr>
-<td>대표자</td>
-<td>강동호</td>
-</tr>
-
-<tr>
-<td>사업자등록번호</td>
-<td><strong>374-06-02143</strong></td>
-</tr>
-
-<tr>
-<td>통신판매업신고번호</td>
-<td><strong>제2022-서울강동-1790호</strong></td>
-</tr>
-
-<tr>
-<td>주소</td>
-<td>서울특별시 강동구 천호동 53-19 원일빌딩 2층</td>
-</tr>
-
-<tr>
-<td>대표번호</td>
-<td class="phone">1588-0500</td>
-</tr>
-
-<tr>
-<td>이메일</td>
-<td>card1588-0500@hanmail.net</td>
-</tr>
-
-<tr>
-<td>업종</td>
-<td>대리운전 콜센터 운영 및 배차 서비스</td>
-</tr>
-
-</table>
-
-</div>
-
-<div class="card">
-
-<h2>운영 브랜드(카카오채널)</h2>
-
-<p style="margin-bottom:20px;">
-화이트 콜센터는 아래 브랜드 및 카카오채널을 직접 운영하고 있습니다.
-</p>
-
-<table class="brand-table">
-
-<tr>
-<th>브랜드</th>
-<th>카카오채널</th>
-<th>대표번호</th>
-</tr>
-
-<tr>
-<td>총알배차대리운전</td>
-<td>@총알배차대리운전</td>
-<td>1644-1230</td>
-</tr>
-
-<tr>
-<td>내친구대리운전</td>
-<td>@내친구대리운전</td>
-<td>1688-4799</td>
-</tr>
-
-<tr>
-<td>바로바로카드대리운전</td>
-<td>@바로바로카드대리운전</td>
-<td>1666-8585</td>
-</tr>
-
-<tr>
-<td>500원카드대리운전</td>
-<td>@500원카드대리운전</td>
-<td>1588-0500</td>
-</tr>
-
-<tr>
-<td>25시대리</td>
-<td>@25시대리</td>
-<td>1666-2525</td>
-</tr>
-
-</table>
-
-<div class="notice">
-
-<strong>안내</strong><br><br>
-
-위 모든 브랜드 및 카카오채널은 <strong>화이트 콜센터</strong>에서 운영하는 공식 서비스입니다.<br>
-
-사업자등록번호 : <strong>374-06-02143</strong><br>
-
-통신판매업신고번호 : <strong>제2022-서울강동-1790호</strong>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<h2>고객센터</h2>
-
-<p class="phone">☎ 1588-0500</p>
-
-<p>24시간 운영</p>
-
-</div>
+  <div class="card">
+    <h2>고객센터</h2>
+    <p class="phone">☎ 1588-0500</p>
+    <p>24시간 운영</p>
+  </div>
 
 </div>
 
 <footer>
-
-<a href="privacy.html">개인정보처리방침</a>
-
-<a href="terms.html">이용약관</a>
-
-<br><br>
-사업자등록번호 : <strong>374-06-02143</strong><br>
-
-통신판매업신고번호 : <strong>제2022-서울강동-1790호</strong>
-© 2026 화이트 콜센터 All Rights Reserved.
-
+  <a href="privacy.html">개인정보처리방침</a>
+  <a href="terms.html">이용약관</a>
+  <br><br>
+  사업자등록번호 : <strong>374-06-02143</strong><br>
+  통신판매업신고번호 : <strong>제2022-서울강동-1790호</strong><br>
+  © 2026 화이트 콜센터 All Rights Reserved.
 </footer>
 
 </body>
