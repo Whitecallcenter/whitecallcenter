@@ -20,6 +20,64 @@ body{
     line-height:1.7;
 }
 
+/* 네비게이션 바 스타일 */
+.navbar {
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: flex-end; /* 오른쪽 정렬 (필요시 space-between으로 변경 가능) */
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 28px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #222222;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.nav-menu a:hover {
+    color: #1565C0;
+}
+
+/* 둥근 버튼 스타일 (문의하기, 기사님모집) */
+.btn-nav {
+    display: inline-block;
+    background-color: #42b6f5;
+    color: #ffffff !important;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 15px !important;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-nav:hover {
+    background-color: #2b9ee0;
+    transform: translateY(-1px);
+}
+
+/* 헤더 스타일 */
 header{
     background:#1f2937;
     color:#fff;
@@ -157,14 +215,27 @@ footer a{
 
 /* 반응형 스타일 */
 @media(max-width:768px){
+    .nav-container {
+        justify-content: center;
+    }
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 18px;
+    }
+    .nav-menu a {
+        font-size: 14px;
+    }
+    .btn-nav {
+        padding: 6px 14px;
+        font-size: 13px !important;
+    }
     header h1{
         font-size:30px;
     }
-
     .info-table td:first-child{
         width:140px;
     }
-
     .brand-table{
         font-size:14px;
     }
@@ -173,6 +244,21 @@ footer a{
 </head>
 
 <body>
+
+<!-- 네비게이션 바 -->
+<nav class="navbar">
+  <div class="nav-container">
+    <ul class="nav-menu">
+      <li><a href="#company">회사소개</a></li>
+      <li><a href="#service">서비스</a></li>
+      <li><a href="#corporate">기업고객</a></li>
+      <li><a href="#consignment">차량탁송</a></li>
+      <li><a href="#cs">고객센터</a></li>
+      <li><a href="#inquiry" class="btn-nav">문의하기</a></li>
+      <li><a href="#recruit" class="btn-nav">기사님모집</a></li>
+    </ul>
+  </div>
+</nav>
 
 <!-- 우하단 플로팅 배너 -->
 <div class="driver-bubble">
@@ -187,7 +273,7 @@ footer a{
 
 <div class="container">
 
-  <div class="card">
+  <div class="card" id="company">
     <h2>사업자 정보</h2>
     <table class="info-table">
       <tr>
@@ -225,7 +311,7 @@ footer a{
     </table>
   </div>
 
-  <div class="card">
+  <div class="card" id="service">
     <h2>운영 브랜드(카카오채널)</h2>
     <p style="margin-bottom:20px;">
       화이트 콜센터는 아래 브랜드 및 카카오채널을 직접 운영하고 있습니다.
@@ -276,7 +362,7 @@ footer a{
     </div>
   </div>
 
-  <div class="card">
+  <div class="card" id="cs">
     <h2>고객센터</h2>
     <p class="phone">☎ 1588-0500</p>
     <p>24시간 운영</p>
