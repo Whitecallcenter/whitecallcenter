@@ -135,6 +135,45 @@ font-size:14px;
 }
 
 }
+    <style>
+/* 기존 디자인 CSS */
+
+.driver-bubble {
+  position: fixed;
+  right: 20px;
+  bottom: 90px;
+  background: #ff5a00;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  z-index: 9999;
+  animation: floatBubble 2s infinite;
+}
+
+.driver-bubble span {
+  display: block;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.driver-bubble:after {
+  content: "";
+  position: absolute;
+  right: 25px;
+  bottom: -10px;
+  border-width: 10px 10px 0 10px;
+  border-style: solid;
+  border-color: #ff5a00 transparent transparent transparent;
+}
+
+@keyframes floatBubble {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+</style>
 </style>
 
 </head>
