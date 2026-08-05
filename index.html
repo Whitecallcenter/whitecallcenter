@@ -1,315 +1,728 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>대리운전 안내</title>
-  <style>
-    /* 기본 스타일 Reset & Base */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: 'Noto Sans KR', sans-serif, -apple-system, BlinkMacSystemFont;
-      background-color: #f4f6f9;
-      color: #333;
-      line-height: 1.6;
-    }
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>화이트 콜센터 | 1588-0500 500원 카드대리운전</title>
 
-    /* 컨테이너 */
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px 15px 40px;
-    }
+<style>
+/* 기본 리셋 및 전역 스타일 */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    /* 헤더 */
-    header {
-      text-align: center;
-      padding: 30px 0 20px;
-    }
-    header h1 {
-      font-size: 1.8rem;
-      color: #1a252f;
-      margin-bottom: 8px;
-    }
-    header p {
-      font-size: 0.95rem;
-      color: #666;
-    }
+body{
+    font-family:'Malgun Gothic', sans-serif;
+    /* 고해상도 배경 이미지 적용 */
+    background-image: url('image_1.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color:#333;
+    line-height:1.7;
+}
 
-    /* 브랜드 카드 그리드 */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 15px;
-      margin-bottom: 30px;
-    }
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      border: 1px solid #e1e8ed;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-    }
-    .card-title {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: #2c3e50;
-      margin-bottom: 12px;
-    }
-    .card-phone {
-      display: inline-block;
-      text-align: center;
-      background-color: #2575fc;
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.2rem;
-      padding: 10px;
-      border-radius: 8px;
-      transition: background-color 0.2s;
-    }
-    .card-phone:hover {
-      background-color: #1a5bbf;
-    }
+/* 네비게이션 바 스타일 */
+.navbar {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
 
-    /* 테이블 세션 */
-    .table-section {
-      background: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      border: 1px solid #e1e8ed;
-      margin-bottom: 30px;
-    }
-    .table-section h2 {
-      font-size: 1.3rem;
-      margin-bottom: 15px;
-      color: #2c3e50;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
-    }
-    th, td {
-      padding: 12px 15px;
-      border-bottom: 1px solid #edf2f7;
-    }
-    th {
-      background-color: #f8fafc;
-      color: #4a5568;
-      font-weight: 600;
-    }
-    tr:last-child td {
-      border-bottom: none;
-    }
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    /* 사업자 및 안내 영역 */
-    .info-box {
-      background: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      border: 1px solid #e1e8ed;
-      margin-bottom: 30px;
-      font-size: 0.9rem;
-      color: #555;
-    }
-    .info-box h3 {
-      font-size: 1.05rem;
-      color: #2c3e50;
-      margin-bottom: 10px;
-    }
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #1565C0;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
 
-    /* 푸터 */
-    footer {
-      text-align: center;
-      font-size: 0.85rem;
-      color: #888;
-      border-top: 1px solid #e1e8ed;
-      padding-top: 20px;
-    }
-    footer a {
-      color: #555;
-      text-decoration: underline;
-      cursor: pointer;
-      margin: 0 5px;
-    }
-    footer a:hover {
-      color: #2575fc;
-    }
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 24px;
+}
 
-    /* 모달 팝업 스타일 */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
+.nav-menu a {
+    text-decoration: none;
+    color: #222222;
+    font-size: 15px;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.nav-menu a:hover {
+    color: #1565C0;
+}
+
+/* 버튼 스타일 */
+.btn-nav {
+    display: inline-block;
+    background-color: #42b6f5;
+    color: #ffffff !important;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 14px !important;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-nav:hover {
+    background-color: #2b9ee0;
+    transform: translateY(-1px);
+}
+
+.btn-accent {
+    background-color: #ff5a00;
+}
+
+.btn-accent:hover {
+    background-color: #e04f00;
+}
+
+/* 헤더/히어로 영역 및 대표번호 카드 그리드 */
+header{
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(5px);
+    color:#fff;
+    padding:60px 20px;
+    text-align:center;
+}
+
+header h1{
+    font-size:42px;
+    margin-bottom:12px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+}
+
+header p{
+    color:#e2e8f0;
+    font-size:18px;
+    margin-bottom:30px;
+}
+
+.header-call-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 16px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.call-card {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px 15px;
+    border-radius: 16px;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    transition: transform 0.2s, background 0.2s;
+}
+
+.call-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.call-card .label {
+    font-size: 15px;
+    color: #93c5fd;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.call-card .number {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+/* 컨테이너 및 카드 공통 */
+.container{
+    max-width:1100px;
+    margin:40px auto;
+    padding:0 20px;
+}
+
+.card{
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    border-radius:12px;
+    padding:35px;
+    margin-bottom:35px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.08);
+}
+
+.card h2{
+    margin-bottom:20px;
+    color:#1565C0;
+    border-bottom:2px solid #1565C0;
+    padding-bottom:10px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 그리드 서비스 안내 */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.grid-item {
+    background: rgba(248, 250, 252, 0.8);
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.grid-item h3 {
+    color: #0f172a;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.grid-item p {
+    font-size: 14px;
+    color: #475569;
+}
+
+/* 특장점 그리드 */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.feature-box {
+    background: #ffffff;
+    border-left: 4px solid #1565C0;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+}
+
+.feature-box h4 {
+    font-size: 16px;
+    color: #1e293b;
+    margin-bottom: 5px;
+}
+
+.feature-box p {
+    font-size: 13px;
+    color: #64748b;
+}
+
+/* 테이블 스타일 */
+.info-table, .brand-table {
+    width:100%;
+    border-collapse:collapse;
+}
+
+.info-table td{
+    padding:12px 15px;
+    border-bottom:1px solid #e2e8f0;
+}
+
+.info-table td:first-child{
+    width:220px;
+    font-weight:bold;
+    background: rgba(241, 245, 249, 0.6);
+}
+
+.brand-table th{
+    background:#1565C0;
+    color:white;
+    padding:12px;
+}
+
+.brand-table td{
+    border:1px solid #e2e8f0;
+    padding:12px;
+    text-align:center;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.notice{
+    margin-top:20px;
+    background: rgba(239, 246, 255, 0.8);
+    border-left:5px solid #1565C0;
+    padding:18px;
+    border-radius: 0 8px 8px 0;
+}
+
+/* 플로팅 배너 */
+.driver-bubble {
+    position: fixed;
+    right: 20px;
+    bottom: 90px;
+    background: #ff5a00;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+    z-index: 9999;
+    animation: floatBubble 2s infinite;
+    text-decoration: none;
+    display: block;
+}
+
+.driver-bubble span {
+    display: block;
+    font-size: 12px;
+    margin-top: 3px;
+    font-weight: normal;
+}
+
+.driver-bubble:after {
+    content: "";
+    position: absolute;
+    right: 25px;
+    bottom: -10px;
+    border-width: 10px 10px 0 10px;
+    border-style: solid;
+    border-color: #ff5a00 transparent transparent transparent;
+}
+
+@keyframes floatBubble {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* 푸터 및 푸터 전화번호 영역 스타일 */
+footer{
+    background: rgba(15, 23, 42, 0.95);
+    color:#94a3b8;
+    text-align:center;
+    padding:40px 20px;
+    margin-top:50px;
+    font-size: 14px;
+}
+
+footer a{
+    color:#e2e8f0;
+    margin:0 12px;
+    text-decoration:none;
+    cursor: pointer;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.footer-brand-numbers {
+    max-width: 900px;
+    margin: 20px auto 25px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px 25px;
+}
+
+.footer-brand-item {
+    font-size: 13px;
+    color: #cbd5e1;
+}
+
+.footer-brand-item strong {
+    color: #93c5fd;
+}
+
+.footer-brand-item a {
+    color: #ffffff;
+    font-weight: bold;
+    margin: 0 0 0 5px;
+}
+
+.phone{
+    color:#1565C0;
+    font-size:26px;
+    font-weight:bold;
+}
+
+/* 반응형 스타일 */
+@media(max-width:768px){
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
     }
-    .modal-content {
-      background-color: #fff;
-      border-radius: 12px;
-      max-width: 750px;
-      width: 100%;
-      max-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-      animation: modalFadeIn 0.25s ease-out;
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 15px;
     }
-    @keyframes modalFadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
+    .header-call-box {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     }
-    .modal-header {
-      padding: 15px 20px;
-      border-bottom: 1px solid #edf2f7;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .call-card .number {
+        font-size: 22px;
     }
-    .modal-header h3 {
-      font-size: 1.2rem;
-      color: #1a252f;
+    .info-table td:first-child{
+        width:130px;
     }
-    .close-btn {
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: #888;
-      cursor: pointer;
-      line-height: 1;
+    .footer-brand-numbers {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
     }
-    .close-btn:hover {
-      color: #000;
-    }
-    .modal-body {
-      padding: 20px;
-      overflow-y: auto;
-      font-size: 0.9rem;
-      color: #4a5568;
-      white-space: pre-wrap;
-      line-height: 1.6;
-    }
-  </style>
+}
+
+/* 모달 팝업 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.modal-content {
+    background-color: #fff;
+    border-radius: 12px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    animation: modalFadeIn 0.25s ease-out;
+}
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.modal-header {
+    padding: 18px 24px;
+    border-bottom: 1px solid #edf2f7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal-header h3 {
+    font-size: 1.25rem;
+    color: #1a252f;
+}
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #888;
+    cursor: pointer;
+    line-height: 1;
+}
+.close-btn:hover {
+    color: #000;
+}
+.modal-body {
+    padding: 24px;
+    overflow-y: auto;
+    font-size: 0.9rem;
+    color: #4a5568;
+    white-space: pre-wrap;
+    line-height: 1.6;
+}
+</style>
 </head>
+
 <body>
 
-  <div class="container">
-    <header>
-      <h1>빠르고 안전한 대리운전 서비스</h1>
-      <p>원하시는 브랜드를 선택하여 즉시 전화 연결을 이용해 보세요.</p>
-    </header>
+<!-- 네비게이션 바 -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="#" class="logo">🚘 화이트 콜센터</a>
+    <ul class="nav-menu">
+      <li><a href="#company">회사소개</a></li>
+      <li><a href="#service">서비스 안내</a></li>
+      <li><a href="#corporate">기업고객</a></li>
+      <li><a href="#consignment">차량탁송</a></li>
+      <li><a href="#cs">고객센터</a></li>
+      <li><a href="#cs" class="btn-nav">문의하기</a></li>
+      <li><a href="#recruit" class="btn-nav btn-accent">기사님모집</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <!-- 대표 브랜드 카드 영역 -->
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-title">총알배차대리운전</div>
-        <a href="tel:1644-1230" class="card-phone">1644-1230</a>
-      </div>
-      <div class="card">
-        <div class="card-title">내친구대리운전</div>
-        <a href="tel:1688-4799" class="card-phone">1688-4799</a>
-      </div>
-      <div class="card">
-        <div class="card-title">바로바로카드대리운전</div>
-        <a href="tel:1666-8585" class="card-phone">1666-8585</a>
-      </div>
-      <div class="card">
-        <div class="card-title">500원카드대리운전</div>
-        <a href="tel:1588-0500" class="card-phone">1588-0500</a>
-      </div>
-      <div class="card">
-        <div class="card-title">25시대리</div>
-        <a href="tel:1666-2525" class="card-phone">1666-2525</a>
-      </div>
+<!-- 우하단 플로팅 배너 -->
+<a href="#recruit" class="driver-bubble">
+  🚗 기사모집중
+  <span>함께하실 기사님을 모집합니다</span>
+</a>
+
+<!-- 헤더 -->
+<header>
+  <h1>화이트 콜센터</h1>
+  <p>24시간 원하시는 브랜드로 빠르고 안전하게 모십니다</p>
+  
+  <div class="header-call-box">
+    <div class="call-card">
+      <span class="label">총알배차대리운전</span>
+      <a href="tel:1644-1230" class="number">1644-1230</a>
     </div>
 
-    <!-- 목록 테이블 영역 -->
-    <div class="table-section">
-      <h2>대리운전 브랜드 전체 목록</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>브랜드명</th>
-            <th>대표 전화번호</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>총알배차대리운전</td>
-            <td><a href="tel:1644-1230" style="color:#2575fc; font-weight:bold;">1644-1230</a></td>
-          </tr>
-          <tr>
-            <td>내친구대리운전</td>
-            <td><a href="tel:1688-4799" style="color:#2575fc; font-weight:bold;">1688-4799</a></td>
-          </tr>
-          <tr>
-            <td>바로바로카드대리운전</td>
-            <td><a href="tel:1666-8585" style="color:#2575fc; font-weight:bold;">1666-8585</a></td>
-          </tr>
-          <tr>
-            <td>500원카드대리운전</td>
-            <td><a href="tel:1588-0500" style="color:#2575fc; font-weight:bold;">1588-0500</a></td>
-          </tr>
-          <tr>
-            <td>25시대리</td>
-            <td><a href="tel:1666-2525" style="color:#2575fc; font-weight:bold;">1666-2525</a></td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="call-card">
+      <span class="label">내친구대리운전</span>
+      <a href="tel:1688-4799" class="number">1688-4799</a>
     </div>
 
-    <!-- 사업자 정보 및 기타 안내 -->
-    <div class="info-box">
-      <h3>고객센터 및 사업자 정보 안내</h3>
-      <p>기사 모집 및 기타 문의 사항은 고객센터를 이용해 주시기 바랍니다.</p>
-      <p style="margin-top: 5px;">상호명: 대리운전 서비스 안내 | 사업자 정보: 서비스 준비 중</p>
+    <div class="call-card">
+      <span class="label">바로바로카드대리운전</span>
+      <a href="tel:1666-8585" class="number">1666-8585</a>
     </div>
 
-    <!-- 푸터 -->
-    <footer>
-      <p>
-        <a onclick="openModal('privacyModal')">개인정보처리방침</a> | 
-        <a onclick="openModal('termsModal')">이용약관</a>
-      </p>
-      <p style="margin-top: 8px;">&copy; 대리운전 서비스. All rights reserved.</p>
-    </footer>
+    <div class="call-card">
+      <span class="label">500원카드대리운전</span>
+      <a href="tel:1588-0500" class="number">1588-0500</a>
+    </div>
+
+    <div class="call-card">
+      <span class="label">25시대리</span>
+      <a href="tel:1666-2525" class="number">1666-2525</a>
+    </div>
+
+    <div class="call-card">
+      <span class="label">법인 후불 고객 전용</span>
+      <a href="tel:1899-1212" class="number">1899-1212</a>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- 주요 서비스 요약 -->
+  <div class="card" id="service">
+    <h2>🚘 서비스 안내</h2>
+    <div class="grid-container">
+      <div class="grid-item">
+        <h3>💳 신용카드 결제 대리운전</h3>
+        <p>현금이 없어도 OK! 전 카드사 신용카드 결제 지원 및 홈페이지를 통한 즉시 영수증 출력 서비스를 제공합니다.</p>
+      </div>
+      <div class="grid-item">
+        <h3>🏢 법인 후불 대리운전</h3>
+        <p>기업 고객을 위한 맞춤형 서비스! 월 단위 일괄 정산, 세금계산서 발행 및 전용 관리 시스템을 제공합니다.</p>
+      </div>
+      <div class="grid-item" id="consignment">
+        <h3>🚚 전문 차량탁송 서비스</h3>
+        <p>인천, 서울, 경기 및 전국 어디서나! 신차, 중고차, 정비차량 등 고객님의 차량을 목적지까지 안전하게 운송합니다.</p>
+      </div>
+    </div>
   </div>
 
-  <!-- 개인정보처리방침 모달 -->
-  <div id="privacyModal" class="modal" onclick="closeModalOnBackground(event, 'privacyModal')">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>개인정보처리방침</h3>
-        <button class="close-btn" onclick="closeModal('privacyModal')">&times;</button>
+  <!-- 화이트콜센터 특장점 -->
+  <div class="card">
+    <h2>🛡️ 화이트 콜센터의 약속</h2>
+    <div class="features-grid">
+      <div class="feature-box">
+        <h4>100% Insurance</h4>
+        <p>전 기사 KB/삼성 등 100% 운전자 보험 가입 완료</p>
       </div>
-      <div class="modal-body">웹사이트 개인정보취급방침입니다. (이하 "회사")
+      <div class="feature-box">
+        <h4>Fast Dispatch</h4>
+        <p>GPS 기반 최단거리 위치 배차 시스템 적용</p>
+      </div>
+      <div class="feature-box">
+        <h4>Receipt Service</h4>
+        <p>카드 결제 및 온라인 영수증 즉시 출력 지원</p>
+      </div>
+      <div class="feature-box">
+        <h4>24/7 Support</h4>
+        <p>연중무휴 24시간 콜센터 상담원 대기</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 법인 및 제휴 안내 -->
+  <div class="card" id="corporate">
+    <h2>🏢 법인고객(후불) 안내</h2>
+    <p style="margin-bottom: 15px;">
+      화이트 콜센터는 기업 임직원분들의 안전한 퇴근과 효율적인 비즈니스 이동을 돕기 위해 법인 전용 서비스를 운영하고 있습니다.
+    </p>
+    <div class="notice">
+      <strong>법인회원 혜택:</strong><br>
+      • 월말 일괄 정산 및 세금계산서 간편 발행<br>
+      • 임직원 이용 내역 실시간 확인 및 일괄 관리<br>
+      • 법인 전용 대표번호 (<strong>1899-1212</strong>) 우선 배차 지원
+    </div>
+  </div>
+
+  <!-- 운영 브랜드 (카카오채널) -->
+  <div class="card">
+    <h2>📱 운영 브랜드 및 카카오채널</h2>
+    <p style="margin-bottom:20px;">
+      화이트 콜센터는 아래의 브랜드 및 카카오채널을 직접 운영 및 관리하고 있습니다.
+    </p>
+
+    <table class="brand-table">
+      <thead>
+        <tr>
+          <th>브랜드명</th>
+          <th>카카오채널</th>
+          <th>대표번호</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>총알배차대리운전</td>
+          <td>@총알배차대리운전</td>
+          <td>1644-1230</td>
+        </tr>
+        <tr>
+          <td>내친구대리운전</td>
+          <td>@내친구대리운전</td>
+          <td>1688-4799</td>
+        </tr>
+        <tr>
+          <td>바로바로카드대리운전</td>
+          <td>@바로바로카드대리운전</td>
+          <td>1666-8585</td>
+        </tr>
+        <tr>
+          <td>500원카드대리운전</td>
+          <td>@500원카드대리운전</td>
+          <td>1588-0500</td>
+        </tr>
+        <tr>
+          <td>25시대리</td>
+          <td>@25시대리</td>
+          <td>1666-2525</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 사업자 정보 -->
+  <div class="card" id="company">
+    <h2>📋 사업자 정보</h2>
+    <table class="info-table">
+      <tr>
+        <td>상호</td>
+        <td>화이트 콜센터</td>
+      </tr>
+      <tr>
+        <td>대표자</td>
+        <td>강동호</td>
+      </tr>
+      <tr>
+        <td>사업자등록번호</td>
+        <td><strong>374-06-02143</strong></td>
+      </tr>
+      <tr>
+        <td>통신판매업신고번호</td>
+        <td><strong>제2022-서울강동-1790호</strong></td>
+      </tr>
+      <tr>
+        <td>주소</td>
+        <td>서울특별시 강동구 천호동 53-19 원일빌딩 2층</td>
+      </tr>
+      <tr>
+        <td>대표전화</td>
+        <td><span class="phone">1588-0500</span> (법인전용: 1899-1212)</td>
+      </tr>
+      <tr>
+        <td>이메일</td>
+        <td>card1588-0500@hanmail.net</td>
+      </tr>
+      <tr>
+        <td>주요업종</td>
+        <td>대리운전 콜센터 운영, 차량탁송 및 배차 서비스</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 기사 모집 안내 -->
+  <div class="card" id="recruit">
+    <h2>🤝 기사님 모집 안내</h2>
+    <p>화이트 콜센터와 함께하실 소중한 기사님을 모집합니다.</p>
+    <div class="notice">
+      <strong>모집 조건:</strong> 운전면허 소지자 (초보가능, 24시간 원하는 시간대 자유 근무)<br>
+      <strong>접수 문의:</strong> 대표번호 1588-0500으로 전화 주시면 친절하게 안내해 드립니다.
+    </div>
+  </div>
+
+  <!-- 고객센터 -->
+  <div class="card" id="cs" style="text-align: center;">
+    <h2>📞 고객센터</h2>
+    <p style="font-size: 18px; margin-top: 10px;">불편사항 접수 및 제휴 문의</p>
+    <p class="phone" style="font-size: 36px; margin: 15px 0;">1588-0500</p>
+    <p style="color: #64748b;">365일 24시간 언제나 친절하게 상담해 드립니다.</p>
+  </div>
+
+</div>
+
+<!-- 푸터 (브랜드별 대표번호 박스 추가 반영) -->
+<footer>
+  <p style="margin-bottom: 15px;">
+    <a onclick="openModal('privacyModal')">개인정보처리방침</a> | 
+    <a onclick="openModal('termsModal')">이용약관</a> | 
+    <a href="#company">사업자정보확인</a>
+  </p>
+
+  <!-- 하단 브랜드 대표번호 모음 -->
+  <div class="footer-brand-numbers">
+    <div class="footer-brand-item"><strong>총알배차</strong> <a href="tel:1644-1230">1644-1230</a></div>
+    <div class="footer-brand-item"><strong>내친구</strong> <a href="tel:1688-4799">1688-4799</a></div>
+    <div class="footer-brand-item"><strong>바로바로카드</strong> <a href="tel:1666-8585">1666-8585</a></div>
+    <div class="footer-brand-item"><strong>500원카드</strong> <a href="tel:1588-0500">1588-0500</a></div>
+    <div class="footer-brand-item"><strong>25시대리</strong> <a href="tel:1666-2525">1666-2525</a></div>
+    <div class="footer-brand-item"><strong>법인전용</strong> <a href="tel:1899-1212">1899-1212</a></div>
+  </div>
+
+  상호명 : 화이트 콜센터 | 대표자 : 강동호 | 주소 : 서울시 강동구 천호동 53-19 원일빌딩 2층<br>
+  전화 : 1588-0500 (대표) / 1644-1230 / 1688-4799 / 1666-8585 / 1666-2525 / 1899-1212(법인)<br>
+  사업자등록번호 : 374-06-02143 | 통신판매업신고번호 : 제2022-서울강동-1790호<br>
+  개인정보관리책임자 : 강동호 | 이메일 : card1588-0500@hanmail.net<br><br>
+  © 2026 화이트 콜센터 All Rights Reserved.
+</footer>
+
+<!-- 개인정보처리방침 모달 -->
+<div id="privacyModal" class="modal" onclick="closeModalOnBackground(event, 'privacyModal')">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>개인정보처리방침</h3>
+      <button class="close-btn" onclick="closeModal('privacyModal')">&times;</button>
+    </div>
+    <div class="modal-body">웹사이트 개인정보취급방침입니다. (이하 "회사")
 
 가. 수집하는 개인정보 항목
 회사는 회원가입, 상담, 서비스 신청 등을 위해 아래와 같은 개인정보를 수집하고 있습니다.
-◈ 성명, [주민등록번호 Omitted], 아이디, 비밀번호, 본인확인문답, 이메일 주소, 주소, 연락처, 핸드폰 번호, 직업 또한 서비스 이용과정이나 사업 처리 과정에서 아래와 같은 정보들이 생성되어 수집될 수 있습니다.
+◈ 성명, 아이디, 비밀번호, 본인확인문답, 이메일 주소, 주소, 연락처, 핸드폰 번호, 직업 또한 서비스 이용과정이나 사업 처리 과정에서 아래와 같은 정보들이 생성되어 수집될 수 있습니다.
 ◈ 이용자의 브라우저 종류 및 OS, 검색어, IP Address, 방문 일시, 불량 이용 기록, 서비스 이용기록, 접속로그, 쿠키, 접속IP정보, 결제기록, 이용정지 기록
 
 나. 개인정보 수집 방법
@@ -399,9 +812,10 @@
 회사는 고객의 개인정보를 보호하고 개인정보와 관련한 불만을 처리하기 위하여 아래와 같이 관련 부서 및 개인정보관리책임자를 지정하고 있습니다.
 
 ◈ 개인정보관리책임자
-성명 : 
-전화번호 : 
-이메일 : 
+성명 : 강동호
+전화번호 : 1644-1230
+이메일 : jjjhtjjjht@naver.com
+
 이용자는 회사의 서비스를 이용하시며 발생하는 모든 개인정보보호 관련 민원을 개인정보관리책임자에게 신고하실 수 있습니다. 회사는 이용자들의 신고사항에 대해 신속하게 충분한 답변을 드릴 것입니다.
 기타 개인정보침해에 대한 신고나 상담이 필요하신 경우에는 아래 기관에 문의하시기 바랍니다.
 개인분쟁조정위원회 (www.1336.or.kr / 1336)
@@ -411,17 +825,17 @@
 
 카. 기타
 회사에 링크되어 있는 웹사이트들이 개인정보를 수집하는 행위에 대해서는 본 "회사 개인정보취급방침"이 적용되지 않음을 알려 드립니다.</div>
-    </div>
   </div>
+</div>
 
-  <!-- 이용약관 모달 -->
-  <div id="termsModal" class="modal" onclick="closeModalOnBackground(event, 'termsModal')">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>이용약관</h3>
-        <button class="close-btn" onclick="closeModal('termsModal')">&times;</button>
-      </div>
-      <div class="modal-body">제 1 장 총 칙
+<!-- 이용약관 모달 -->
+<div id="termsModal" class="modal" onclick="closeModalOnBackground(event, 'termsModal')">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>이용약관</h3>
+      <button class="close-btn" onclick="closeModal('termsModal')">&times;</button>
+    </div>
+    <div class="modal-body">제 1 장 총 칙
 제 1 조 (목 적)
 이 이용약관은 회원이 웹사이트(이하 "회사")에서 제공하는 인터넷 웹 사이트 서비스(이하 "서비스")를 이용함에 있어 회원과 회사 간의 권리, 의무 및 책임사항, 이용조건 및 절차 등 기본적인 사항을 규정함을 목적으로 합니다.
 
@@ -429,7 +843,7 @@
 (1) 이 약관에서 사용하는 용어의 정의는 다음과 같습니다.
 1. 회원 : 사이트에 접속하여 이 약관에 동의하고, ID(고유번호)와 Password(비밀번호)를 발급 받은 고객으로 회원의 자격 및 권한 등은 사이트 별로 별도 관리
 2. 이용자 : 회원 및 회원이 아니면서 서비스를 이용하는 자
-3. ID(고유번호) : 회원 식별과 회원의 서비스 이용을 위하여 회원이 선정하고 회사가 승인하는 영문자와 숫자의 조합으로, 하나의 [주민등록번호 Omitted]에 하나의 ID만 발급, 이용 가능
+3. ID(고유번호) : 회원 식별과 회원의 서비스 이용을 위하여 회원이 선정하고 회사가 승인하는 영문자와 숫자의 조합으로 이용 가능
 4. PASSWORD(비밀번호) : 회원의 정보 보호를 위해 회원 자신이 설정한 문자와 숫자의 조합
 5. 운영자 : 서비스의 전반적인 관리와 원활한 운영을 위하여 회사가 선정한 자
 6. 서비스 중지 : 정상 이용 중 회사가 정한 일정한 요건에 따라 일정기간 동안 서비스의 제공을 중지하는 것
@@ -484,7 +898,7 @@
 (2) 이용자ID는 원칙적으로 변경이 불가하며 부득이한 사유로 인하여 변경 하고자 하는 경우에는 해당 ID를 해지하고 재가입해야 합니다.
 (3) 회사의 이용자ID는 회원 본인의 동의하에 회사 또는 자회사가 운영하는 사이트의 회원ID와 연결될 수 있습니다.
 (4) 이용자ID는 다음 각 호에 해당하는 경우에는 회원의 요청 또는 회사의 직권으로 변경 또는 이용을 정지할 수 있습니다.
-- 이용자ID가 전화번호 또는 [주민등록번호 Omitted] 등으로 등록되어 사생활 침해가 우려되는 경우
+- 이용자ID가 전화번호 등으로 등록되어 사생활 침해가 우려되는 경우
 - 타인에게 혐오감을 주거나 미풍양속에 어긋나는 경우
 - 회사, 회사의 서비스 또는 서비스 운영자 등의 명칭과 동일하거나 오인 등의 우려가 있는 경우
 - 기타 합리적인 사유가 있는 경우
@@ -547,7 +961,7 @@
 제 5 장 계약 해지 및 이용 제한
 제 17 조 (계약 변경 및 해지)
 (1) 회원이 이용계약을 해지하고자 하는 때에는 회원 본인이 서비스 내의 [회원탈퇴] 메뉴를 이용해 가입해지를 해야 합니다.
-(2) 회사는 이용계약을 해지하는 경우 식물과 사람들 개인정보취급방침에 따라 회원 등록을 말소합니다. 이 경우 회원에게 이를 통지하며, 회사가 직권으로 이용계약을 해지하고자 하는 경우에는 말소 전에 회원에게 소명의 기회를 부여합니다.
+(2) 회사는 이용계약을 해지하는 경우 개인정보취급방침에 따라 회원 등록을 말소합니다. 이 경우 회원에게 이를 통지하며, 회사가 직권으로 이용계약을 해지하고자 하는 경우에는 말소 전에 회원에게 소명의 기회를 부여합니다.
 
 제 18 조 (서비스 이용제한)
 회사는 회원이 서비스 이용내용에 있어서 본 약관 제 11조 내용을 위반하거나, 다음 각 호에 해당하는 경우 서비스 이용 제한, 초기화, 이용계약 해지 및 기타 해당 조치를 할 수 있습니다.
@@ -585,37 +999,38 @@
 (3) 서비스 이용으로 발생한 분쟁에 대해 소송이 제기되는 경우 대한민국 서울중앙지방법원을 관할 법원으로 합니다.
 
 &lt;부칙&gt;
-1. 본 약관은 2024년 1월 1일부터 적용됩니다.</div>
-    </div>
+1. 본 약관은 2026년 1월 1일부터 적용됩니다.</div>
   </div>
+</div>
 
-  <script>
-    // 모달 열기
-    function openModal(modalId) {
-      document.getElementById(modalId).style.display = 'flex';
-      document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
+<script>
+  // 모달 열기
+  function openModal(modalId) {
+    document.getElementById(modalId).style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // 스크롤 방지
+  }
+
+  // 모달 닫기
+  function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+    document.body.style.overflow = 'auto'; // 스크롤 복원
+  }
+
+  // 배경 클릭 시 닫기
+  function closeModalOnBackground(event, modalId) {
+    if (event.target.id === modalId) {
+      closeModal(modalId);
     }
+  }
 
-    // 모달 닫기
-    function closeModal(modalId) {
-      document.getElementById(modalId).style.display = 'none';
-      document.body.style.overflow = 'auto'; // 스크롤 복원
+  // ESC 키 누를 경우 닫기
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      closeModal('privacyModal');
+      closeModal('termsModal');
     }
+  });
+</script>
 
-    // 어두운 배경 클릭 시 닫기
-    function closeModalOnBackground(event, modalId) {
-      if (event.target.id === modalId) {
-        closeModal(modalId);
-      }
-    }
-
-    // ESC 키 누르면 닫기
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') {
-        closeModal('privacyModal');
-        closeModal('termsModal');
-      }
-    });
-  </script>
 </body>
 </html>
